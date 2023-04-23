@@ -3,15 +3,12 @@ package com.exam.assignment.utils;
 import java.sql.*;
 
 public class JDBCConnection {
-    String url;
-    String username;
-    String password;
+    private String url = "jdbc:mysql://localhost:3306/java_hw?autoReconnect=true&useSSL=false";
+    private String username ="root";
+    private String password ="";
     Connection connection;
 
-    public JDBCConnection(String url, String username, String password) {
-        this.url = url;
-        this.username = username;
-        this.password = password;
+    public JDBCConnection() {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);

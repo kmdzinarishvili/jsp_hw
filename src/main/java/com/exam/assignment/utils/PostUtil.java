@@ -10,7 +10,7 @@ import java.util.List;
 public class PostUtil {
 
     public static boolean addPost(Post post){
-        JDBCConnection conn = new JDBCConnection("jdbc:mysql://localhost:3306/java_hw?autoReconnect=true&useSSL=false","root","");
+        JDBCConnection conn = new JDBCConnection();
         try {
             Statement statement = conn.getConnection().createStatement();
             statement.execute("insert into posts (id, author, title, content) " +
@@ -22,7 +22,7 @@ public class PostUtil {
         return true;
     }
     public static List<Post> getPosts() {
-        JDBCConnection conn = new JDBCConnection("jdbc:mysql://localhost:3306/java_hw?autoReconnect=true&useSSL=false","root","");
+        JDBCConnection conn = new JDBCConnection();
         List<Post> posts = new ArrayList<>();
         try {
             Statement statement = conn.getConnection().createStatement();

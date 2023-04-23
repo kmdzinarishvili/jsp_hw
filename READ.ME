@@ -2,3 +2,10 @@ Project by Ketevan Mdzinarishvili
 Posts Table Creation sql:
 CREATE DATABASE java_hw;
 CREATE TABLE `java_hw`.`posts` (`ID` INT NOT NULL AUTO_INCREMENT , `AUTHOR` VARCHAR(255) NOT NULL , `TITLE` VARCHAR(255) NOT NULL , `CONTENT` TEXT NOT NULL , `CREATED_AT` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+
+Database user and password can be found in package:
+com.exam.assignment.utils in the JDBCConnection class
+default username is set to root
+default password is blank
+to change, modify these two variables
