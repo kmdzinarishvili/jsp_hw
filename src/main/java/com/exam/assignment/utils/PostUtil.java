@@ -13,8 +13,8 @@ public class PostUtil {
         JDBCConnection conn = new JDBCConnection("jdbc:mysql://localhost:3306/java_hw?autoReconnect=true&useSSL=false","root","");
         try {
             Statement statement = conn.getConnection().createStatement();
-            ResultSet resultSet = statement.executeQuery("insert into posts (author, title, content, createdAt) " +
-                    "VALUES ("+post.getAuthor()+","+post.getTitle()+","+post.getContent()+","+post.getContent()+");");
+            statement.execute("insert into posts (id, author, title, content) " +
+                    "VALUES ("+post.getId()+",\'"+post.getAuthor()+"\',\'"+post.getTitle()+"\',\'"+post.getContent()+"\');");
             conn.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);

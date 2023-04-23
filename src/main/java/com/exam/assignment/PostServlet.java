@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.List;
 
 @WebServlet(name="postServlet",value="/post-servlet" )
@@ -20,6 +21,8 @@ public class PostServlet extends HttpServlet {
         List<Post> posts = PostUtil.getPosts();
 
         PrintWriter writer = resp.getWriter();
+        resp.setContentType("text/html");
+
         writer.print("<html>");
         writer.print("<head>");
         writer.print("<style>" +
@@ -80,7 +83,22 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String author = req.getParameter("author");
+        String title = req.getParameter("title");
+        String content = req.getParameter("content");
+        resp.setContentType("text/html");
 
+        PrintWriter writer = resp.getWriter();
+
+
+        boolean success = PostUtil.addPost(new Post(id, author, title, content, new Timestamp(System.currentTimeMillis())));
+        if (success){
+            writer.print("<h2>Post Successfully Added </h2>");
+        }else{
+            writer.print("<h2>Post Addition failed </h2>");
+        }
+        writer.close();
 
     }
 }

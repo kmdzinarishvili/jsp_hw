@@ -9,29 +9,13 @@
 </head>
 
 <body>
-<h1><%= "Hello World!" %>
+<h1><%="Posts Application" %>
 </h1>
 <br/>
-<%--<a href="./inputForm.jsp">Form</a>--%>
 
-<%--    <tbody>--%>
-<%--    <jsp:include page="/posts"/>--%>
     <a href="post-servlet">Get Posts</a>
-<%--    <%--%>
-<%--        List<Post> posts = PostUtil.getPosts();--%>
-<%--        for (int i =0; i<posts.size(); i++){ %>--%>
-<%--    <tr>--%>
-<%--        <td><%=i+1%></td>--%>
-<%--        <td><%=posts.get(i).getId()%></td>--%>
-<%--        <td><%=posts.get(i).getAuthor()%></td>--%>
-<%--        <td><%=posts.get(i).getTitle()%></td>--%>
-<%--        <td><%=posts.get(i).getContent()%></td>--%>
-<%--        <td><%=posts.get(i).getCreatedAt()%></td>--%>
-<%--&lt;%&ndash;        <td><a href="./deleteData.jsp?id=<%=i%>">delete</a></td>&ndash;%&gt;--%>
-<%--    </tr>--%>
-<%--    <%    }--%>
-<%--    %>--%>
-<%--    </tbody>--%>
+    <a href="./inputForm.jsp">Add Post</a>
+
 
 </body>
 </html>
