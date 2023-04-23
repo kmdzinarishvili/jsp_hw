@@ -6,14 +6,14 @@ public class Post {
     private String author;
     private String title;
     private String content;
-    private Timestamp created_at;
+    private Timestamp createdAt;
 
-    public Post(int id, String author, String title, String content, Timestamp created_at) {
+    public Post(int id, String author, String title, String content, Timestamp createdAt) {
         this.id = id;
         this.author = author;
         this.title = title;
         this.content = content;
-        this.created_at = created_at;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -48,12 +48,12 @@ public class Post {
         this.content = content;
     }
 
-    public Timestamp getCreated_at() {
-        return created_at;
+    public Timestamp getCreatedAt() {
+        return createdAt;
     }
 
     public void setCreated_at(Timestamp created_at) {
-        this.created_at = created_at;
+        this.createdAt = created_at;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class Post {
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", created_at=" + created_at +
+                ", createdAt=" + createdAt +
                 '}';
     }
 }

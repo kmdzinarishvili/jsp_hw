@@ -10,7 +10,15 @@ import java.util.List;
 public class PostUtil {
 
     public static boolean addPost(Post post){
-
+        JDBCConnection conn = new JDBCConnection("jdbc:mysql://localhost:3306/java_hw?autoReconnect=true&useSSL=false","root","");
+        try {
+            Statement statement = conn.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery("insert into posts (author, title, content, createdAt) " +
+                    "VALUES ("+post.getAuthor()+","+post.getTitle()+","+post.getContent()+","+post.getContent()+");");
+            conn.closeConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
     public static List<Post> getPosts() {
